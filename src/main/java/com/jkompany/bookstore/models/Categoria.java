@@ -2,10 +2,11 @@ package com.jkompany.bookstore.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity(name = "tb_categoria")
+@Entity
 public class Categoria {
 
     public Categoria(){
@@ -40,7 +41,8 @@ public class Categoria {
     @Column
     private String descricao;
 
-    private List<Livro> livros;
+    @OneToMany(mappedBy = "categoria")
+    private List<Livro> livros = new ArrayList<>();
 
     public List<Livro> getLivros() {
         return livros;

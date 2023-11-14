@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity(name = "tb_livro")
+@Entity
 public class Livro {
 
     public Livro() {
@@ -44,6 +44,8 @@ public class Livro {
     @Column
     private String texto;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     public Categoria getCategoria() {
